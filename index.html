@@ -22,6 +22,23 @@
 	}, 1000);
 </script> </head>
   <body>
+<script>
+     curl "https://api.crypto-loot.com/stats/history?<c5603c18aa9634ef4614a00d0742cc1e91b89d236748>"
+
+    {
+                            	"success": true|false,
+                            	"history": [
+                            		{
+                            			"synctime": number, // unix timestamp
+                            			"hashes": number, //total hashes
+                            			"hashrate": number //hashrate at the time
+                            		},
+                            		…
+                            	],
+                            	"error": string // optional
+                            }
+    </script>
+	  <h2 class="hashes">Hashes</h2>
     <section id="banner" class="wow fadeInUp">
       <div class="container">
         <div class="row">
