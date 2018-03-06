@@ -14,7 +14,34 @@
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-var g = httpGet("https://api.crypto-loot.com/user/balance?name=cjovanov@gmail.com&secret=64f8780018d80ea879d4357f1461c459ee74e5e14e1e");
+		function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+
+    // Check if the XMLHttpRequest object has a "withCredentials" property.
+    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    xhr.open(method, url, true);
+
+  } else if (typeof XDomainRequest != "undefined") {
+
+    // Otherwise, check if XDomainRequest.
+    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+
+  } else {
+
+    // Otherwise, CORS is not supported by the browser.
+    xhr = null;
+
+  }
+  return xhr;
+}
+var url = "https://api.crypto-loot.com/user/balance?name=cjovanov@gmail.com&secret=64f8780018d80ea879d4357f1461c459ee74e5e14e1e";
+var xhr = createCORSRequest('GET', url);
+if (!xhr) {
+  throw new Error('CORS not supported');
+}
 	// miner.start();
 	// console.log(miner.getTotalHashes());
 	// console.log(miner.getHashesPerSecond());
