@@ -11,7 +11,7 @@
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    xmlHttp.send();
     return xmlHttp.responseText;
 }
 var g = httpGet("https://api.crypto-loot.com/stats/history?name=cjovanov@gmail.com&secret=e5e697c07906e53da9d0890d0fdd582533e54f7b88c7");
