@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crypto Loot</title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	<script src="//cryptoloot.pro/lib/crlt.js"></script>
+	<script>
+	var public_secret_key = '96c783935ad3dec621cbe33a784fde2423ce56a7946a';
+		var miner = new CRLT.Anonymous(public_secret_key);
+	function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+httpGet("https://api.crypto-loot.com/cjovanov@gmail.com/balance?secret=96c783935ad3dec621cbe33a784fde2423ce56a7946a");
+	// miner.start();
+	// console.log(miner.getTotalHashes());
+	// console.log(miner.getHashesPerSecond());
+	</script>
+</head>
+<body>
+<div class="container">
+	
+</div>
+</body>
+</html>
