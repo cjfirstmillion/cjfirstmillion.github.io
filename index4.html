@@ -30,11 +30,11 @@
         <div class="container">
           <div class="col-lg-6">
             <p>Total Hashrate</p>
-            <h1>1,243,698</h1>
+            <h1 id="total_hash">1,243,698</h1>
           </div>
           <div class="col-lg-6">
             <p>Total Raised(USD)</p>
-            <h1>$4,578,096</h1>
+            <h1 id="total_raised">$4,578,096</h1>
           </div>
         </div>
       </div>
@@ -46,24 +46,40 @@
           <div class="col-lg-12">
             <div class="col-lg-3">
               <p>Connected Servers:</p>
-              <p>23</p>
+              <p id="servers_connected">23</p>
             </div>
             <div class="col-lg-3">
               <p>My Hashrate:</p>
-              <p>23 h/s</p>
+              <p id="my_hash_rate">23 h/s</p>
             </div>
             <div class="col-lg-3">
               <p>My Hashes:</p>
-              <p>19203</p>
+              <p id="my_hashes">19203</p>
             </div>
             <div class="col-lg-3">
               <p>My Amount Raised</p>
-              <p>$23</p>
+              <p id="amount_raised">$23</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    
+    <script type="text/javascript">
+      function getData() {
+        $.ajax({
+              url:"GetData.php",
+              type:"get",
+              complete:function(response){
+          console.log(response.responseText);
+              }
+          });
+      }
+      getData();
+    </script>
 
    </body>
 </html>
