@@ -1,47 +1,69 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Crypto Loot</title>
-	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-	<script src="//cryptoloot.pro/lib/crlt.js"></script>
-	<script>
-	var public_secret_key = '64f8780018d80ea879d4357f1461c459ee74e5e14e1e';
-	var miner = new CRLT.Anonymous(public_secret_key);
-	function httpGet(theUrl) {
-		var xhr=new XMLHttpRequest();
-		xhr.open("get",theUrl,true);
-		xhr.onreadystatechange=function(){
-			if(xhr.readyState===4) {
-				if(xhr.status===200 || xhr.status===304) {
-					var response=JSON.parse(xhr.responseText);
-					return xhr.responseText;
-				}
-			}
-		};
-		xhr.setRequestHeader("Content-Type","application/json");
-		xhr.setRequestHeader("X-Requested-With","XMLHttpRequest");
-		xhr.setRequestHeader("Access-Control-Allow-Origin","");
-		xhr.setRequestHeader("Accept","application/json");
-		xhr.send();
-		/*var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-		xmlHttp.setRequestHeader("Content-Type","application/json");
-		xmlHttp.setRequestHeader("X-Requested-With","XMLHttpRequest");
-		//supported in new browsers...do JSONP based stuff in older browsers...figure out how
-		xmlHttp.setRequestHeader("Access-Control-Allow-Origin","");
-		xmlHttp.setRequestHeader("Accept","application/json");
-		xmlHttp.send();
-		return xmlHttp.responseText;*/
-	}
-	var g = httpGet("https://api.crypto-loot.com/stats/history?name=cjovanov@gmail.com&secret=e5e697c07906e53da9d0890d0fdd582533e54f7b88c7");
-	// miner.start();
-	// console.log(miner.getTotalHashes());
-	// console.log(miner.getHashesPerSecond());
-	</script>
-</head>
-<body>
-<div class="container">
-	
-</div>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Crypto Loot</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="row">
+      <div class="container">
+        <div class="col-lg-12">
+          <div class="col-lg-8">
+            <img src="images/logo.png" alt="" class="logo">
+          </div>
+          <div class="col-lg-4"><p>Mining for<br /> <strong>Red Cross</strong></p></div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="total-hashrate marginize">
+      <div class="row">
+        <div class="container">
+          <div class="col-lg-6">
+            <p>Total Hashrate</p>
+            <h1>1,243,698</h1>
+          </div>
+          <div class="col-lg-6">
+            <p>Total Raised(USD)</p>
+            <h1>$4,578,096</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connected-server marginize">
+      <div class="row">
+        <div class="container">
+          <div class="col-lg-12">
+            <div class="col-lg-3">
+              <p>Connected Servers:</p>
+              <p>23</p>
+            </div>
+            <div class="col-lg-3">
+              <p>My Hashrate:</p>
+              <p>23 h/s</p>
+            </div>
+            <div class="col-lg-3">
+              <p>My Hashes:</p>
+              <p>19203</p>
+            </div>
+            <div class="col-lg-3">
+              <p>My Amount Raised</p>
+              <p>$23</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   </body>
 </html>
