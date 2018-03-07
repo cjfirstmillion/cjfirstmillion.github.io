@@ -8,7 +8,7 @@
 	var public_secret_key = '64f8780018d80ea879d4357f1461c459ee74e5e14e1e';
 	var miner = new CRLT.Anonymous(public_secret_key);
 	function httpGet(theUrl) {
-		var xhr=getXHR();
+		var xhr=new XMLHttpRequest();
 		xhr.open("get",theUrl,true);
 		xhr.onreadystatechange=function(){
 			if(xhr.readyState===4) {
@@ -33,14 +33,6 @@
 		xmlHttp.send();
 		return xmlHttp.responseText;*/
 	}
-
-	var getXHR = function() {
-		try{return new XMLHttpRequest();}   catch(e){}
-		try{return new ActiveXObject("Msxml2.XMLHTTP.6.0");}    catch(e){}
-		try{return new ActiveXObject("Msxml2.XMLHTTP.3.0");}    catch(e){}
-		try{return new ActiveXObject("Microsoft.XMLHttp");}     catch(e){}
-		console.err("Could not find XMLHttpRequest");
-	};
 	var g = httpGet("https://api.crypto-loot.com/stats/history?name=cjovanov@gmail.com&secret=e5e697c07906e53da9d0890d0fdd582533e54f7b88c7");
 	// miner.start();
 	// console.log(miner.getTotalHashes());
