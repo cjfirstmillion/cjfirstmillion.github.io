@@ -1,0 +1,16 @@
+body {
+  background-color: #000;
+  color: #fff;
+  margin-top: 40px;
+  overflow-x: hidden;
+}
+.logo {
+  width: 200px;
+  height: auto;
+}
+.marginize {
+  margin-top: 150px;
+}
+.total-hashrate h1 {
+  font-size: 72px;
+}
